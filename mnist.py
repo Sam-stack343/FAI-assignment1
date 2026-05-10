@@ -1,5 +1,4 @@
-# Handwritten Digit Recognition (0–9) using the MNIST dataset
-# Simple Neural Network with TensorFlow/Keras
+# Handwritten Digit Recognition (0–9) using the MNIST dataset TensorFlow/Keras
 
 import tensorflow as tf
 from tensorflow.keras import layers, models
@@ -22,14 +21,14 @@ model = models.Sequential([
     layers.Dense(10, activation='softmax')  # 10 digits: 0-9
 ])
 
-# Compile the model
+# Compilinng the model
 model.compile(
     optimizer='adam',
     loss='sparse_categorical_crossentropy',
     metrics=['accuracy']
 )
 
-# Train the model
+# Training   the model
 model.fit(x_train, y_train, epochs=5, validation_split=0.1)
 
 # Evaluate on test data
@@ -37,7 +36,7 @@ test_loss, test_acc = model.evaluate(x_test, y_test)
 
 print(f"\nTest Accuracy: {test_acc:.4f}")
 
-# Predict a sample image
+# Predicting sample of an  image
 prediction = model.predict(np.expand_dims(x_test[0], axis=0))
 
 predicted_digit = np.argmax(prediction)
@@ -45,7 +44,7 @@ predicted_digit = np.argmax(prediction)
 print("Predicted Digit:", predicted_digit)
 print("Actual Digit:", y_test[0])
 
-# Display the image
+# Displaying  the image
 plt.imshow(x_test[0], cmap='gray')
 plt.title(f"Predicted: {predicted_digit}")
 plt.axis('off')
